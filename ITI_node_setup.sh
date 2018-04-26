@@ -15,7 +15,7 @@ sudo apt-get -y install maven
 sudo cd /home/iota/tanglewise/ITI/iri/
 sudo mvn clean compile
 sudo mvn package
-sudo cp iri-1.4.2.2.jar /home/iota/node/
+sudo cp /target/iri-1.4.2.2.jar /home/iota/node/
 
 #Get RAM, create java RAM constraint flag variable
 phymem=$(awk -F":" '$1~/MemTotal/{print $2}' /proc/meminfo )
