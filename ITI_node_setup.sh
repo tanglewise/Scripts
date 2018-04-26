@@ -8,7 +8,7 @@ sudo sh -c 'echo JAVA_HOME="/usr/lib/jvm/java-8-oracle" >> /etc/environment' && 
 sudo useradd -s /usr/sbin/nologin -m iota
 sudo -u iota mkdir -p /home/iota/node /home/iota/node/ixi /home/iota/node/mainnetdb /home/iota/tanglewise
 sudo -u iota git clone https://github.com/tanglewise/ITI.git /home/iota/tanglewise
-# sudo -u iota wget -O /home/iota/node/iri-1.4.2.1.jar https://github.com/iotaledger/iri/releases/download/v1.4.2.1/iri-1.4.2.1.jar
+# sudo -u iota wget -O /home/iota/node/iri-1.4.2.2.jar https://github.com/iotaledger/iri/releases/download/v1.4.2.2/iri-1.4.2.2.jar
 
 #Install maven and build ITI
 sudo apt-get -y install maven
@@ -40,7 +40,7 @@ ExecReload=/bin/kill -HUP $MAINPID
 KillMode=mixed
 KillSignal=SIGTERM
 TimeoutStopSec=60
-ExecStart=/usr/bin/java -$xmx -Djava.net.preferIPv4Stack=true -jar iri-1.4.2.1.jar -c iota.ini
+ExecStart=/usr/bin/java -$xmx -Djava.net.preferIPv4Stack=true -jar iri-1.4.2.2.jar -c iota.ini
 Restart=on-failure
 RestartSec=30
 [Install]
