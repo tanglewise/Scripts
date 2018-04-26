@@ -12,7 +12,7 @@ sudo -u iota git clone https://github.com/tanglewise/ITI.git /home/iota/tanglewi
 
 #Install maven and build ITI
 sudo apt-get -y install maven
-cd /home/iota/tanglewise/ITI/iri
+sudo cd /home/iota/tanglewise/ITI/iri/
 sudo mvn clean compile
 sudo mvn package
 sudo cp iri-1.4.2.2.jar /home/iota/node/
