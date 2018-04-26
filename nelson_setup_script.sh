@@ -7,7 +7,7 @@ sudo apt-get -y install software-properties-common -y && sudo add-apt-repository
 sudo sh -c 'echo JAVA_HOME="/usr/lib/jvm/java-8-oracle" >> /etc/environment' && source /etc/environment
 sudo useradd -s /usr/sbin/nologin -m iota
 sudo -u iota mkdir -p /home/iota/node /home/iota/node/ixi /home/iota/node/mainnetdb
-sudo -u iota wget -O /home/iota/node/iri-1.4.2.1.jar https://github.com/iotaledger/iri/releases/download/v1.4.2.1/iri-1.4.2.1.jar
+sudo -u iota wget -O /home/iota/node/iri-1.4.2.2.jar https://github.com/iotaledger/iri/releases/download/v1.4.2.2/iri-1.4.2.2.jar
 
 #Get RAM, create java RAM constraint flag variable
 phymem=$(awk -F":" '$1~/MemTotal/{print $2}' /proc/meminfo )
@@ -32,7 +32,7 @@ ExecReload=/bin/kill -HUP $MAINPID
 KillMode=mixed
 KillSignal=SIGTERM
 TimeoutStopSec=60
-ExecStart=/usr/bin/java -$xmx -Djava.net.preferIPv4Stack=true -jar iri-1.4.2.1.jar -c iota.ini
+ExecStart=/usr/bin/java -$xmx -Djava.net.preferIPv4Stack=true -jar iri-1.4.2.2.jar -c iota.ini
 Restart=on-failure
 RestartSec=30
 [Install]
@@ -64,7 +64,8 @@ sudo -u iota tar xzfv /tmp/IOTA.partners-mainnetdb.tar.gz -C /home/iota/node/mai
 sudo rm /tmp/IOTA.partners-mainnetdb.tar.gz
 sudo service iota start
 
-echo '*/15 * * * * root bash -c \"bash <(curl -s https://gist.githubusercontent.com/zoran/48482038deda9ce5898c00f78d42f801/raw)\"' | sudo tee /etc/cron.d/iri_updater > /dev/null
+#Check every 15 mins for newest IRI version
+#echo '*/15 * * * * root bash -c \"bash <(curl -s https://gist.githubusercontent.com/zoran/48482038deda9ce5898c00f78d42f801/raw)\"' | sudo tee /etc/cron.d/iri_updater > /dev/null
 
 #Install Nelson for automatic neighbors
 sudo curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -

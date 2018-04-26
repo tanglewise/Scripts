@@ -6,8 +6,16 @@ echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-se
 sudo apt-get -y install software-properties-common -y && sudo add-apt-repository ppa:webupd8team/java -y && sudo apt update && sudo apt install oracle-java8-installer curl wget jq git -y && sudo apt install oracle-java8-set-default -y
 sudo sh -c 'echo JAVA_HOME="/usr/lib/jvm/java-8-oracle" >> /etc/environment' && source /etc/environment
 sudo useradd -s /usr/sbin/nologin -m iota
-sudo -u iota mkdir -p /home/iota/node /home/iota/node/ixi /home/iota/node/mainnetdb
-sudo -u iota wget -O /home/iota/node/iri-1.4.2.1.jar https://github.com/iotaledger/iri/releases/download/v1.4.2.1/iri-1.4.2.1.jar
+sudo -u iota mkdir -p /home/iota/node /home/iota/node/ixi /home/iota/node/mainnetdb /home/iota/tanglewise
+sudo -u iota git clone https://github.com/tanglewise/ITI.git /home/iota/tanglewise
+# sudo -u iota wget -O /home/iota/node/iri-1.4.2.1.jar https://github.com/iotaledger/iri/releases/download/v1.4.2.1/iri-1.4.2.1.jar
+
+#Install maven and build ITI
+sudo apt-get -y install maven
+cd /home/iota/tanglewise/ITI/iri
+sudo mvn clean compile
+sudo mvn package
+sudo cp iri-1.4.2.2.jar /home/iota/node/
 
 #Get RAM, create java RAM constraint flag variable
 phymem=$(awk -F":" '$1~/MemTotal/{print $2}' /proc/meminfo )
@@ -148,4 +156,3 @@ sudo service iotapm start
 #Install python jupyter notebook
 sudo apt-get update && sudo apt-get upgrade && sudo apt-get install python3-pip -y && sudo apt purge python27-minimal -y && sudo pip3 install jupyter && sudo pip3 install ipyparallel && sudo pip3 install pyota && sudo pip3 uninstall pyopenssl -y && sudo pip3 install pyopenssl && sudo pip3 install pyota[ccurl]
 
-#Get tangle spammer notebook file
