@@ -154,5 +154,4 @@ sudo systemctl daemon-reload && sudo systemctl enable iotapm.service
 sudo service iotapm start
 
 #Install python jupyter notebook
-sudo apt-get update && sudo apt-get upgrade && sudo apt-get install python3-pip -y && sudo apt purge python27-minimal -y && sudo pip3 install jupyter && sudo pip3 install ipyparallel && sudo pip3 install pyota && sudo pip3 uninstall pyopenssl -y && sudo pip3 install pyopenssl && sudo pip3 install pyota[ccurl]
-
+sudo apt-get update && sudo apt-get upgrade -y && sudo apt-get install python3-pip -y && sudo apt purge python2.7-minimal -y && sudo pip3 install jupyter && sudo pip3 install ipyparallel && sudo pip3 install pyota && sudo pip3 uninstall pyopenssl -y && sudo pip3 install pyopenssl && sudo pip3 install pyota[ccurl]
