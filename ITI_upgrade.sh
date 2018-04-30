@@ -4,7 +4,7 @@ sudo apt-get install maven
 
 git clone https://github.com/tanglewise/ITI.git /home/iota/tanglewise
 sudo git pull origin master
-cd iri
+cd /home/iota/tanglewise/iri
 sudo mvn clean compile
 sudo mvn package
 sudo rm /home/iota/node/iri-1.4.2.4.jar
