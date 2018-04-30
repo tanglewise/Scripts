@@ -1,6 +1,8 @@
 #!/bin/bash
 
-git clone https://github.com/tanglewise/ITI.git /home/iota/
+sudo apt-get install maven
+
+git clone https://github.com/tanglewise/ITI.git /home/iota/tanglewise
 sudo git pull origin master
 cd iri
 sudo mvn clean compile
