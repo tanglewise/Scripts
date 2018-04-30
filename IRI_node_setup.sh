@@ -7,7 +7,7 @@ sudo apt-get -y install software-properties-common -y && sudo add-apt-repository
 sudo sh -c 'echo JAVA_HOME="/usr/lib/jvm/java-8-oracle" >> /etc/environment' && source /etc/environment
 sudo useradd -s /usr/sbin/nologin -m iota
 sudo -u iota mkdir -p /home/iota/node /home/iota/node/ixi /home/iota/node/mainnetdb
-sudo -u iota wget -O /home/iota/node/iri-1.4.2.2.jar https://github.com/iotaledger/iri/releases/download/v1.4.2.2/iri-1.4.2.2.jar
+sudo -u iota wget -O /home/iota/node/iri-1.4.2.4.jar https://github.com/iotaledger/iri/releases/download/v1.4.2.4/iri-1.4.2.4.jar
 
 #Get RAM, create java RAM constraint flag variable
 phymem=$(awk -F":" '$1~/MemTotal/{print $2}' /proc/meminfo )
@@ -32,7 +32,7 @@ ExecReload=/bin/kill -HUP $MAINPID
 KillMode=mixed
 KillSignal=SIGTERM
 TimeoutStopSec=60
-ExecStart=/usr/bin/java -$xmx -Djava.net.preferIPv4Stack=true -jar iri-1.4.2.2.jar -c iota.ini
+ExecStart=/usr/bin/java -$xmx -Djava.net.preferIPv4Stack=true -jar iri-1.4.2.4.jar -c iota.ini
 Restart=on-failure
 RestartSec=30
 [Install]
@@ -54,6 +54,7 @@ DEBUG = false
 TESTNET = false
 DB_PATH = mainnetdb
 RESCAN_DB = false
+MIN_RANDOM_WALKS = 1
 REMOTE_LIMIT_API="removeNeighbors, addNeighbors, interruptAttachingToTangle, attachToTangle, getNeighbors"
 NEIGHBORS = udp://94.156.128.15:14600 udp://185.181.8.149:14600
 EOF
