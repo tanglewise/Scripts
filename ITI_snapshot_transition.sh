@@ -5,8 +5,7 @@ sudo apt-get install maven
 cd /home/iota
 sudo git clone https://github.com/tanglewise/ITI.git
 cd ITI
-sudo git pull origin
-sudo git checkout testnet_tip_selection
+sudo git pull origin master
 cd /home/iota/ITI/iri
 sudo mvn clean compile
 sudo mvn package
