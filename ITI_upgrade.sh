@@ -1,6 +1,6 @@
 #!/bin/bash
 sudo service iota stop && sudo service nelson stop && sudo service iotapm stop
-sudo apt-get install maven
+sudo apt-get -y install maven
 cd /home/iota
 sudo git clone https://github.com/tanglewise/ITI.git
 cd ITI
