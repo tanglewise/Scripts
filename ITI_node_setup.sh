@@ -8,7 +8,6 @@ sudo sh -c 'echo JAVA_HOME="/usr/lib/jvm/java-8-oracle" >> /etc/environment' && 
 sudo useradd -s /usr/sbin/nologin -m iota
 sudo -u iota mkdir -p /home/iota/node /home/iota/node/ixi /home/iota/node/mainnetdb /home/iota/tanglewise
 sudo -u iota git clone https://github.com/tanglewise/ITI.git /home/iota/tanglewise
-# sudo -u iota wget -O /home/iota/node/iri-1.4.2.2.jar https://github.com/iotaledger/iri/releases/download/v1.4.2.2/iri-1.4.2.2.jar
 
 #Install maven and build ITI
 sudo apt-get -y install maven
