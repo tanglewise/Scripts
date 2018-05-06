@@ -1,11 +1,11 @@
 #!/bin/bash
-sudo service iota stop && sudo service nelson stop && sudo service iotapm stop
+sudo service iotapm stop && sudo service nelson stop && sudo service iota stop
 sudo apt-get -y install maven
 cd /home/iota
 sudo git clone https://github.com/tanglewise/ITI.git
 cd ITI
 sudo git pull origin
-sudo git checkout testnet_tip_selection
+#sudo git checkout testnet_tip_selection
 cd /home/iota/ITI/iri
 sudo mvn clean compile
 sudo mvn package
