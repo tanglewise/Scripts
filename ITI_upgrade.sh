@@ -11,5 +11,8 @@ sudo mvn clean compile
 sudo mvn package
 sudo rm /home/iota/node/iri-1.4.2.4.jar
 sudo cp /home/iota/ITI/iri/target/iri-1.4.2.4.jar /home/iota/node/
+sudo curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+sudo apt-get install -y nodejs
+sudo npm install -g npm
 #Restart node
 sudo service iota start && sudo service nelson start && sudo service iotapm start
