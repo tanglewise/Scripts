@@ -12,7 +12,8 @@ One-line linux command to upgrade modified ITI (same 1.4.2.4 version):
 One-line linux command to upgrade to IRI (same 1.4.2.4 version):
 `sudo curl https://raw.githubusercontent.com/tanglewise/Scripts/master/IRI_upgrade.sh | bash`
 
-One-line linux command to install Java spammer with Go POW (to run: `java -jar twspam-1.jar`):
+One-line linux command to install Java spammer with Go POW:
 `sudo curl https://raw.githubusercontent.com/tanglewise/JavaGoSpam/master/go_spam_setup.sh | bash`
+Then to run: `cd /home/iota/spam/JavaGoSpam && java -jar twspam-1.jar`
 
 [How to set up IOTA node on Google Compute Engine for free](https://github.com/tanglewise/Tutorials/blob/master/google_compute_node_setup.md)
