@@ -7,7 +7,7 @@ echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-se
 sudo apt-get -y install software-properties-common -y && sudo add-apt-repository ppa:webupd8team/java -y && sudo apt update && sudo apt install oracle-java8-installer curl wget jq git -y && sudo apt install oracle-java8-set-default -y
 sudo sh -c 'echo JAVA_HOME="/usr/lib/jvm/java-8-oracle" >> /etc/environment' && source /etc/environment
 sudo useradd -s /usr/sbin/nologin -m iota
-sudo -u iota mkdir -p /home/iota/node /home/iota/node/ixi /home/iota/node/mainnetdb
+sudo -u iota mkdir -p /home/iota /home/iota/node /home/iota/node/ixi /home/iota/node/mainnetdb
 sudo -u iota wget -O /home/iota/node/iri-1.4.2.4.jar https://github.com/iotaledger/iri/releases/download/v1.4.2.4/iri-1.4.2.4.jar
 #Get RAM, create java RAM constraint flag variable
 phymem=$(awk -F":" '$1~/MemTotal/{print $2}' /proc/meminfo )
