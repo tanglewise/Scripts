@@ -9,7 +9,7 @@ sudo git pull origin
 cd /home/iota/NewIRI/
 sudo mvn clean compile
 sudo mvn package
-sudo rm /home/iota/node/iri-1.4.2.4.jar
+# sudo rm /home/iota/node/iri-1.4.2.4.jar
 
 #Get RAM, create java RAM constraint flag variable
 phymem=$(awk -F":" '$1~/MemTotal/{print $2}' /proc/meminfo )
@@ -35,7 +35,7 @@ ExecReload=/bin/kill -HUP $MAINPID
 KillMode=mixed
 KillSignal=SIGTERM
 TimeoutStopSec=60
-ExecStart=/usr/bin/java -$xmx -Djava.net.preferIPv4Stack=true -jar iri-1.4.2.4.jar -c iota.ini
+ExecStart=/usr/bin/java -$xmx -Djava.net.preferIPv4Stack=true -jar iri-1.5.0.jar -c iota.ini
 Restart=on-failure
 RestartSec=30
 [Install]
@@ -72,7 +72,7 @@ neighbors[] = iotairi.tt-tec.net/16600
 EOF
 
 #copy jar file
-sudo cp /home/iota/NewIRI/target/iri-1.4.2.4.jar /home/iota/node/
+sudo cp /home/iota/NewIRI/target/iri-1.5.0.jar /home/iota/node/
 sudo curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 sudo apt-get install -y nodejs
 sudo npm install -g npm
