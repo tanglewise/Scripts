@@ -17,6 +17,10 @@ One-line linux command to set up IOTA node with Nelson and ITI spamming capabili
 One-line linux command to upgrade modified ITI (same 1.4.2.4 version):
 `sudo curl https://raw.githubusercontent.com/tanglewise/Scripts/master/ITI_upgrade.sh | bash`
 
+## New IRI setup
+
+One-line linux command to set up IOTA node with Nelson and ITI spamming capabilities:
+`sudo curl https://raw.githubusercontent.com/tanglewise/Scripts/master/NewIRI_upgrade.sh | bash`
 
 ## Spammer setup
 
