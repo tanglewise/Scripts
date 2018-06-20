@@ -11,6 +11,15 @@ sudo mvn clean compile
 sudo mvn package
 sudo rm /home/iota/node/iri-1.4.2.4.jar
 
+#Get RAM, create java RAM constraint flag variable
+phymem=$(awk -F":" '$1~/MemTotal/{print $2}' /proc/meminfo )
+phymem=${phymem:0:-2}
+#allot about 75% of RAM to java
+phymem=$((($phymem/1333) + ($phymem % 1333 > 0)))
+xmx="Xmx"
+xmx_end="m"
+xmx=$xmx$phymem$xmx_end
+
 #change jar file name
 sudo rm /lib/systemd/system/iota.service
 cat << EOF | sudo tee /lib/systemd/system/iota.service
