@@ -8,7 +8,7 @@ echo debconf shared/accepted-oracle-license-v1-1 seen true | sudo debconf-set-se
 sudo apt-get -y install software-properties-common -y && sudo add-apt-repository ppa:webupd8team/java -y && sudo apt update && sudo apt install oracle-java8-installer curl wget jq git -y && sudo apt install oracle-java8-set-default -y
 sudo sh -c 'echo JAVA_HOME="/usr/lib/jvm/java-8-oracle" >> /etc/environment' && source /etc/environment
 sudo useradd -s /usr/sbin/nologin -m iota
-sudo -u iota mkdir -p /home/iota /home/iota/node /home/iota/node/ixi /home/iota/node/mainnetdb
+sudo mkdir /home/iota /home/iota/node /home/iota/node/ixi /home/iota/node/mainnetdb
 sudo git clone https://github.com/iotaledger/iri.git /home/iota/node && cd /home/iota/node/iri
 sudo git checkout master
 sudo sudo apt-get -y install maven
