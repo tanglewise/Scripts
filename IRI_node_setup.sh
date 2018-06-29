@@ -9,7 +9,11 @@ sudo apt-get -y install software-properties-common -y && sudo add-apt-repository
 sudo sh -c 'echo JAVA_HOME="/usr/lib/jvm/java-8-oracle" >> /etc/environment' && source /etc/environment
 sudo useradd -s /usr/sbin/nologin -m iota
 sudo -u iota mkdir -p /home/iota /home/iota/node /home/iota/node/ixi /home/iota/node/mainnetdb
-sudo -u iota wget -O /home/iota/node/iri-1.4.2.4.jar https://github.com/iotaledger/iri/releases/download/v1.4.2.4/iri-1.4.2.4.jar
+sudo git clone https://github.com/iotaledger/iri.git /home/iota/node && cd /home/iota/node/iri
+sudo git checkout master
+sudo sudo apt-get -y install maven
+sudo mvn clean compile && sudo mvn install
+sudo cp target/iri-1.5.0.jar /home/iota/node
 #Get RAM, create java RAM constraint flag variable
 phymem=$(awk -F":" '$1~/MemTotal/{print $2}' /proc/meminfo )
 phymem=${phymem:0:-2}
