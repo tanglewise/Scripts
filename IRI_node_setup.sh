@@ -65,7 +65,7 @@ NEIGHBORS = udp://94.156.128.15:14600 udp://185.181.8.149:14600
 EOF
 cd /tmp/
 sudo curl -O http://db.iota.partners/IOTA.partners-mainnetdb.tar.gz
-sudo -u iota tar xzfv /tmp/IOTA.partners-mainnetdb.tar.gz -C /home/iota/node/mainnetdb
+sudo tar xzfv /tmp/IOTA.partners-mainnetdb.tar.gz -C /home/iota/node/mainnetdb
 sudo rm /tmp/IOTA.partners-mainnetdb.tar.gz
 sudo service iota start
 #Check every 15 mins for newest IRI version
